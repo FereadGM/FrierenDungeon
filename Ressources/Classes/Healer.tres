@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://br7mlcvnmvwkx"]
+
+[ext_resource type="Script" uid="uid://cc0s84y0f1m6c" path="res://Scripts/Classes/CharacterClass.gd" id="1_voh6u"]
+
+[resource]
+script = ExtResource("1_voh6u")
+Name = "Healer"
+Description = "This class focus on supporting other characters. It is an essential class for any important fight."
+metadata/_custom_type_script = "uid://cc0s84y0f1m6c"

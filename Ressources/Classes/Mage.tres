@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://vfu7ojrdrdll"]
+
+[ext_resource type="Script" uid="uid://cc0s84y0f1m6c" path="res://Scripts/Classes/CharacterClass.gd" id="1_kiegs"]
+
+[resource]
+script = ExtResource("1_kiegs")
+Name = "Mage"
+Description = "A mage possesses a huge fire power but is very vulnerable to attacks. They are a glasscannon."
+metadata/_custom_type_script = "uid://cc0s84y0f1m6c"

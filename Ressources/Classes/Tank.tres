@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://qekf507x18v1"]
+
+[ext_resource type="Script" uid="uid://cc0s84y0f1m6c" path="res://Scripts/Classes/CharacterClass.gd" id="1_xy0vw"]
+
+[resource]
+script = ExtResource("1_xy0vw")
+Name = "Tank"
+Description = "Sometime seen as the thankless job Tank are crucial for a successful teamfight. They keep the enemy focus and defend their allies without failing. Backed by a healer, a tank is an immovable force."
+metadata/_custom_type_script = "uid://cc0s84y0f1m6c"

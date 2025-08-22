@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://4p67hgopey3d"]
+
+[ext_resource type="Script" uid="uid://d3pwknu6xypb6" path="res://Scripts/Player/Item.gd" id="1_mayf8"]
+
+[resource]
+script = ExtResource("1_mayf8")
+Name = "Staff"
+Description = "Basic staff"
+metadata/_custom_type_script = "uid://d3pwknu6xypb6"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterClass" load_steps=2 format=3 uid="uid://omu1lmjt47w2"]
+
+[ext_resource type="Script" uid="uid://cc0s84y0f1m6c" path="res://Scripts/Classes/CharacterClass.gd" id="1_l3nlc"]
+
+[resource]
+script = ExtResource("1_l3nlc")
+Name = "Rogue"
+Description = "When discretion, agility and perception is needed, a Rogue is needed. Specialized in backstabbing and landing devastating blows, rogue are as usefull in combat as they are outside of it."
+metadata/_custom_type_script = "uid://cc0s84y0f1m6c"
