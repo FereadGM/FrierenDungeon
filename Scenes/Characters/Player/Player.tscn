@@ -18,3 +18,4 @@ inventory = SubResource("Resource_gu5w3")
 [node name="PlayerController3D" parent="." instance=ExtResource("1_v0iea")]
 
 [node name="InventoryUI" parent="." instance=ExtResource("5_7vix2")]
+unique_name_in_owner = true

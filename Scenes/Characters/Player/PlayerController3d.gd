@@ -18,7 +18,8 @@ var _gravity : float = -30.0
 @onready var _skin : Node3D = %PlayerSkin
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("left_click"):
+	
+	if event.is_action_pressed("left_click") and %InventoryUI.visible == false:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE;

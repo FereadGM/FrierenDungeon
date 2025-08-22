@@ -9,12 +9,12 @@ func _ready():
 func open():
 	is_open = true;
 	visible = true;
-	pass;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func close():
 	visible = false;
 	is_open = false;
-	pass;
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,3 +23,6 @@ func _process(delta):
 			close();
 		else:
 			open();
+			
+	if is_open and Input.is_action_just_pressed("ui_cancel"):
+		close();
