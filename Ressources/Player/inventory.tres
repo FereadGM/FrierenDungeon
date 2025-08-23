@@ -5,7 +5,5 @@
 
 [resource]
 script = ExtResource("2_wnumj")
-Size = 0
-Description = ""
-Items = Array[ExtResource("1_mm8ce")]([])
+items = Array[ExtResource("1_mm8ce")]([null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://btrom3berpkia"

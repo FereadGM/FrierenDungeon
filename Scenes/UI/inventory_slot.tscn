@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://uqnubgkmnebn"]
+[gd_scene load_steps=4 format=3 uid="uid://uqnubgkmnebn"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kltru"]
+[ext_resource type="Script" uid="uid://ddqruj6pxkdyw" path="res://Scenes/UI/IventorySlot.gd" id="1_brh76"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_brh76"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kltru"]
 
@@ -14,6 +16,7 @@ offset_right = -812.0
 offset_bottom = -628.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_brh76")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -23,22 +26,30 @@ offset_bottom = 23.0
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("PlaceholderTexture2D_kltru")
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="ItemDisplayPanel" type="Panel" parent="MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ItemDisplay" type="Sprite2D" parent="MarginContainer/HBoxContainer/CenterContainer/ItemDisplayPanel"]
+texture = SubResource("PlaceholderTexture2D_brh76")
+
+[node name="ItemLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 16)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Placeholder text"
 label_settings = SubResource("LabelSettings_kltru")
 
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/Button" to="." method="_on_button_button_down"]

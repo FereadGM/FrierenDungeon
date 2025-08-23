@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_gu5w3"]
 script = ExtResource("3_7vix2")
-items = Array[ExtResource("2_uapsp")]([])
+items = Array[ExtResource("2_uapsp")]([null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://btrom3berpkia"
 
 [node name="Player" type="Node3D"]

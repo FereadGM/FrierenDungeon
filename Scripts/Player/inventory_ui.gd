@@ -1,10 +1,18 @@
 extends Control
 
+@onready var slots : Array = $NinePatchRect/VBoxContainer.get_children()
+
 var is_open
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	close();
+
+func UpdateItems() :
+	var inventory: Inventory = get_parent().inventory;
+	if (inventory.items.size() == slots.size()):
+		for i in range(inventory.items.size()):
+			slots[i].SetItem(inventory.items[i]);
 
 func open():
 	is_open = true;
