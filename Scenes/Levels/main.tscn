@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3k8bmjydm68w"]
+[gd_scene load_steps=7 format=3 uid="uid://d3k8bmjydm68w"]
 
 [ext_resource type="PackedScene" uid="uid://etmo7mxbl8a3" path="res://Scenes/Characters/Player/Player.tscn" id="1_s0gyx"]
+[ext_resource type="PackedScene" uid="uid://c150un4q5udrl" path="res://Scenes/UI/Menus/pause_menu.tscn" id="1_yjsus"]
+[ext_resource type="Script" uid="uid://dk0nlcbmbovrh" path="res://Scenes/Levels/engine.gd" id="3_u872a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -59,3 +61,16 @@ use_collision = true
 size = Vector3(10.4, 3.4, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_s0gyx")]
+unique_name_in_owner = true
+
+[node name="Engine" type="Node" parent="." node_paths=PackedStringArray("RootSceneNode")]
+unique_name_in_owner = true
+script = ExtResource("3_u872a")
+RootSceneNode = NodePath("..")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_yjsus")]
+unique_name_in_owner = true
+visibility_layer = 3
+
+[connection signal="child_entered_tree" from="." to="Engine" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="Engine" method="_on_main_child_exiting_tree"]

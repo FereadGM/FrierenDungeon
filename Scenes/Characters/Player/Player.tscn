@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://etmo7mxbl8a3"]
+[gd_scene load_steps=8 format=3 uid="uid://etmo7mxbl8a3"]
 
 [ext_resource type="Script" uid="uid://nyapy5rhvbrf" path="res://Scenes/Characters/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="PackedScene" uid="uid://c4n6yxp0qf3qm" path="res://Scenes/Characters/Player/PlayerController3d.tscn" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://d3pwknu6xypb6" path="res://Scripts/Player/Item.gd" id="2_uapsp"]
 [ext_resource type="Script" uid="uid://btrom3berpkia" path="res://Scripts/Player/Inventory.gd" id="3_7vix2"]
-[ext_resource type="PackedScene" uid="uid://ds108jabnlm14" path="res://Scenes/UI/inventory_ui.tscn" id="5_7vix2"]
+[ext_resource type="PackedScene" uid="uid://ds108jabnlm14" path="res://Scenes/UI/Menus/inventory_ui.tscn" id="5_7vix2"]
+[ext_resource type="PackedScene" uid="uid://b7ogbyoxvp78o" path="res://Scenes/UI/PlayerUI/PlayerUI.tscn" id="6_gu5w3"]
 
 [sub_resource type="Resource" id="Resource_gu5w3"]
 script = ExtResource("3_7vix2")
@@ -19,3 +20,6 @@ inventory = SubResource("Resource_gu5w3")
 
 [node name="InventoryUI" parent="." instance=ExtResource("5_7vix2")]
 unique_name_in_owner = true
+
+[node name="PlayerUI" parent="." instance=ExtResource("6_gu5w3")]
+mouse_filter = 2

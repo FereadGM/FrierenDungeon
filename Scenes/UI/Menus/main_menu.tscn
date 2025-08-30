@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwme83ceg6u2"]
+
+[ext_resource type="Script" uid="uid://pxi3m4anolw3" path="res://Scenes/UI/Menus/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="Texture2D" uid="uid://df2lf4kljhyqr" path="res://Assets/CustomAssets/Background.png" id="2_i2xx2"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wsvm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_i2xx2")
+
+[node name="MainContainer" type="BoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MainContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="MainContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="MainContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
+[node name="OptionsContainer" type="BoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Global volume"
+
+[node name="GlobalVolumeSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Music volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="OptionsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Environment and effects volume"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+
+[node name="ReturnButton" type="Button" parent="OptionsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return"
+
+[connection signal="button_down" from="MainContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="MainContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_button_down"]
+[connection signal="button_down" from="MainContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/VBoxContainer/GlobalVolumeSlider" to="." method="_on_global_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/VBoxContainer2/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/VBoxContainer3/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="button_down" from="OptionsContainer/VBoxContainer/ReturnButton" to="." method="_on_option_return_button_button_down"]

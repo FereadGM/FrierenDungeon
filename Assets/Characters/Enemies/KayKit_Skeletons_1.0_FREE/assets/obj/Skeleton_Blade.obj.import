@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvdomm3ihah1p"
+path="res://.godot/imported/Skeleton_Blade.obj-cf53fb97298c49f39d5573b341824adf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Blade.obj-cf53fb97298c49f39d5573b341824adf.mesh"]
+
+source_file="res://Assets/Characters/Enemies/KayKit_Skeletons_1.0_FREE/assets/obj/Skeleton_Blade.obj"
+dest_files=["res://.godot/imported/Skeleton_Blade.obj-cf53fb97298c49f39d5573b341824adf.mesh", "res://.godot/imported/Skeleton_Blade.obj-cf53fb97298c49f39d5573b341824adf.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

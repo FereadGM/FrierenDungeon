@@ -16,13 +16,34 @@ var _gravity : float = -30.0
 @onready var _camera_pivot : Node3D = %CameraPivot
 @onready var _camera : Camera3D = %Camera3D
 @onready var _skin : Node3D = %PlayerSkin
+@onready var _pause_menu : Control = get_node("/root/Main/PauseMenu")
 
+
+@export var targetedEnemy : EnemyBase
+
+
+func IsScreenLocked() -> bool :
+	if _pause_menu.is_open:
+		return true;
+	return false;
+
+
+func TargetNextEnemy():
+	if IsScreenLocked() == false:
+		print("Next target is : ", targetedEnemy.name)
+	
 func _input(event: InputEvent):
 	
-	if event.is_action_pressed("left_click") and %InventoryUI.visible == false:
+	if event.is_action_pressed("left_click") and %InventoryUI.visible == false and _pause_menu.is_open == false:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE;
+	if event.is_action_pressed("ui_cancel") and _pause_menu.is_open == false:
+		_pause_menu.OpenMenu()
+	elif event.is_action_pressed("ui_cancel") and _pause_menu.is_open == true:
+		_pause_menu.CloseMenu()
+	
+	if event.is_action_pressed("auto_targeting") and IsScreenLocked() == false:
+		TargetNextEnemy()
+		
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_camera_motion := (
@@ -72,4 +93,5 @@ func _physics_process(delta: float):
 			_skin.idle();
 	else:
 		_skin.jump();
+		
 		
