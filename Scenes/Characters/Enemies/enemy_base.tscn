@@ -1,16 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcvhuvgxxj41u"]
+[gd_scene load_steps=8 format=3 uid="uid://bcvhuvgxxj41u"]
 
 [ext_resource type="PackedScene" uid="uid://6gpmlchjh5p" path="res://Assets/Characters/Enemies/KayKit_Skeletons_1.0_FREE/characters/fbx/Skeleton_Warrior.fbx" id="1_jroqy"]
 [ext_resource type="Script" uid="uid://5putjdg7oxif" path="res://Scenes/Characters/Enemies/enemy_base.gd" id="2_c0t5b"]
 
-[node name="EnemyBase" instance=ExtResource("1_jroqy")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c0t5b"]
+height = 2.4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c0t5b"]
+viewport_path = NodePath("EntityUI/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0t5b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iccno"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0t5b"]
+bg_color = Color(0.827451, 0, 0, 1)
+
+[node name="EnemyBase" node_paths=PackedStringArray("characterBody") instance=ExtResource("1_jroqy")]
 script = ExtResource("2_c0t5b")
 EnemyName = "Skeleton"
+characterBody = NodePath("CharacterBody3D")
 
 [node name="Skeleton3D" parent="Rig" index="0"]
 bones/1/position = Vector3(-2.36658e-30, 0.392064, 0)
 bones/1/rotation = Quaternion(-1.11128e-10, 0.0431578, 2.57241e-09, 0.999068)
-bones/1/scale = Vector3(1, 1, 1)
 bones/2/position = Vector3(0, 0.191978, 1.85962e-15)
 bones/2/rotation = Quaternion(5.34989e-15, 1.3312e-30, -2.498e-16, 1)
 bones/3/position = Vector3(3.33067e-16, 0.374988, -4.84335e-15)
@@ -26,7 +40,6 @@ bones/6/rotation = Quaternion(5.58992e-09, -9.31654e-09, 0.0266581, 0.999645)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(0, 0.0738259, 3.25963e-08)
 bones/7/rotation = Quaternion(-0.321065, -0.325319, 0.145726, 0.87741)
-bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(1.43316e-08, 0.0961252, -0.0575)
 bones/8/rotation = Quaternion(-8.92696e-09, 1.21465e-08, -0.707107, 0.707107)
 bones/8/scale = Vector3(1, 1, 1)
@@ -41,7 +54,6 @@ bones/11/rotation = Quaternion(-7.45323e-09, -1.11798e-08, -0.0266581, 0.999645)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/position = Vector3(3.72529e-08, 0.0738259, 6.89179e-08)
 bones/12/rotation = Quaternion(-0.319291, 0.300524, -0.22735, 0.869512)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-2.08809e-09, 0.0961252, -0.0575001)
 bones/13/rotation = Quaternion(-1.41953e-08, -1.74148e-08, 0.707107, 0.707107)
 bones/13/scale = Vector3(1, 1, 1)
@@ -89,7 +101,6 @@ bones/28/rotation = Quaternion(-0.391084, -6.17045e-08, -6.70524e-08, 0.920355)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/position = Vector3(2.27081e-09, 0.16565, 0)
 bones/29/rotation = Quaternion(1, 1.03125e-08, 1.87424e-07, 1.33158e-07)
-bones/29/scale = Vector3(1, 1, 1)
 bones/30/rotation = Quaternion(5.8601e-08, -1.63758e-15, -1.49012e-08, 1)
 bones/30/scale = Vector3(1, 1, 1)
 bones/31/rotation = Quaternion(0.707107, -3.82385e-08, 1.45009e-07, 0.707107)
@@ -104,7 +115,6 @@ bones/35/rotation = Quaternion(-0.391084, -7.16646e-08, -6.26327e-08, 0.920355)
 bones/35/scale = Vector3(1, 1, 1)
 bones/36/position = Vector3(2.55539e-08, 0.16565, 8.3819e-09)
 bones/36/rotation = Quaternion(1, 3.20433e-09, 1.91479e-07, 1.33158e-07)
-bones/36/scale = Vector3(1, 1, 1)
 bones/37/rotation = Quaternion(5.8601e-08, -1.45717e-15, -1.86265e-08, 1)
 bones/38/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
 bones/38/scale = Vector3(1, 1, 1)
@@ -118,5 +128,67 @@ bones/41/rotation = Quaternion(-0.758253, -1.52737e-07, 0.651961, 2.98023e-08)
 bones/41/scale = Vector3(1, 1, 1)
 
 [node name="Skeleton_Warrior_Helmet" parent="Rig/Skeleton3D" index="0"]
-transform = Transform3D(0.99972, -3.67809e-10, 0.0236466, 3.59788e-10, 1, 3.43473e-10, -0.0236466, -3.34868e-10, 0.99972, -7.48335e-09, 1.20227, -1.8848e-07)
+transform = Transform3D(0.99972, -3.67791e-10, 0.0236468, 3.59772e-10, 1, 3.43462e-10, -0.0236468, -3.34854e-10, 0.99972, -7.48338e-09, 1.20227, -1.8848e-07)
 bone_idx = 15
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("CapsuleShape3D_c0t5b")
+
+[node name="EntityUI" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+cast_shadow = 0
+billboard = 2
+texture = SubResource("ViewportTexture_c0t5b")
+
+[node name="SubViewport" type="SubViewport" parent="EntityUI" index="0"]
+transparent_bg = true
+size = Vector2i(200, 60)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EntityUI/SubViewport" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="EntityName" type="Label" parent="EntityUI/SubViewport/VBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Test"
+label_settings = SubResource("LabelSettings_c0t5b")
+
+[node name="HealthBorder" type="Panel" parent="EntityUI/SubViewport/VBoxContainer" index="1"]
+visibility_layer = 5
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_iccno")
+
+[node name="MarginContainer" type="MarginContainer" parent="EntityUI/SubViewport/VBoxContainer/HealthBorder" index="0"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EntityHealth" type="ProgressBar" parent="EntityUI/SubViewport/VBoxContainer/HealthBorder/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_c0t5b")
+value = 50.0
